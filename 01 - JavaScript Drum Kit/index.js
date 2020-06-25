@@ -8,5 +8,5 @@ const pressedKey = window.addEventListener("keydown", (e) => {
   setTimeout(function(){
     correspondingKey.classList.toggle("playing");
     correspondingKey.classList.toggle("sound");
-  }, 500);
+  }, 200);
 });

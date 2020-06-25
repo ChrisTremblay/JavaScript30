@@ -25,6 +25,10 @@
       font-size: 10px;
     }
 
+    .hour-hand, .min-hand, .second-hand{
+      transform-origin: right;
+    }
+
     body {
       margin: 0;
       font-size: 2rem;
@@ -67,8 +71,17 @@
   </style>
 
   <script>
-
-
+    const hourHand = document.querySelector('.hour-hand');
+    const minHand = document.querySelector('.min-hand');
+    const secondHand = document.querySelector('.second-hand');
+    setTime = () => {
+      today = new Date();
+      secondHand.style.transform = `rotate(${90+6*today.getSeconds()}deg)`;
+      minHand.style.transform = `rotate(${90+6*today.getMinutes()}deg)`;
+      hourHand.style.transform = `rotate(${90+30*(today.getHours()% 12 || 12)}deg)`;
+    }
+    let myClock = setInterval(setTime, 1000);
+    setTime();
   </script>
 </body>
 </html>
